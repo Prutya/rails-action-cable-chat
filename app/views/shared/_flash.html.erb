@@ -1,0 +1,15 @@
+<div class="flash">
+  <% ApplicationController::KEYS_FLASH.each do |key| %>
+    <% next unless flash[key].present? && flash[key].is_a?(Array) %>
+    <% flash[key].each do |msg| %>
+      <div class="flash__message flash__message--<%= key %>">
+        <div class="flash__message__heading">
+          <%= key.capitalize %>
+        </div>
+        <div class="flash__message__body">
+          <%= msg %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

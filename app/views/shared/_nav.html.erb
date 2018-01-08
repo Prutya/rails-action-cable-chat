@@ -1,0 +1,19 @@
+<nav class="nav">
+  <ul class="nav__list">
+    <% if signed_in? %>
+      <li class="nav__list__text">
+        <%= "#{current_user.username}" %>
+      </li>
+      <li class="nav__list__link">
+        <%= link_to 'Sign out', session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li class="nav__list__link">
+        <%= link_to 'Sign in', new_session_path %>
+      </li>
+      <li class="nav__list__link">
+        <%= link_to 'Sign up', new_user_path %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

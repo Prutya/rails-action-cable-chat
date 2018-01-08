@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsActionCableChat</title>
+    <title>Chat</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/nav' %>
+
+    <main>
+      <%= render 'shared/flash' %>
+      <%= yield %>
+    </main>
   </body>
 </html>
