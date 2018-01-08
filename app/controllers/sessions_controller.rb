@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:password])
       sign_in(user)
-      display_flash(:info, 'Signed in successfully', now: true)
+      display_flash(:info, 'Signed in successfully')
       return redirect_to(root_path)
     end
 

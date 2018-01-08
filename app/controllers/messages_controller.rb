@@ -9,16 +9,23 @@ class MessagesController < ApplicationController
     message = current_user.messages.build(params_create)
 
     if message.save
-      return redirect_to(messages_url)
-    end
+      ActionCable.server.broadcast('room_channel', {
+        message: {
+          body: message.body,
+          user: {
+            username: message.user.username
+          }
+        }
+      })
 
-    render :index
+      return render 'index'
+    end
   end
 
   private
 
   def load_messages
-    @messages = Message.latest
+    @messages = Message.includes(:user).latest
   end
 
   def build_message
