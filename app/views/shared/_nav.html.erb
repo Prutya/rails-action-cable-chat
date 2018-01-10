@@ -1,19 +1,21 @@
-<nav class="nav">
-  <ul class="nav__list">
+<div class="nav">
+  <div class="nav__list">
     <% if signed_in? %>
-      <li class="nav__list__text">
-        <%= "#{current_user.username}" %>
-      </li>
-      <li class="nav__list__link">
-        <%= link_to 'Sign out', session_path, method: :delete %>
-      </li>
+      <div class="nav-item">
+        <span class="nav-item__gutter nav-item__gutter--text">
+          <%= "#{current_user.username}" %>
+        </span>
+      </div>
+      <div class="nav-item">
+        <%= link_to 'Sign out', session_path, method: :delete, class: 'nav-item__gutter nav-item__gutter--link' %>
+      </div>
     <% else %>
-      <li class="nav__list__link">
-        <%= link_to 'Sign in', new_session_path %>
-      </li>
-      <li class="nav__list__link">
-        <%= link_to 'Sign up', new_user_path %>
-      </li>
+      <div class="nav-item">
+        <%= link_to 'Sign in', new_session_path, class: 'nav-item__gutter nav-item__gutter--link' %>
+      </div>
+      <div class="nav-item">
+        <%= link_to 'Sign up', new_user_path, class: 'nav-item__gutter nav-item__gutter--link' %>
+      </div>
     <% end %>
-  </ul>
-</nav>
+  </div>
+</div>

@@ -3,9 +3,6 @@
     <% next unless flash[key].present? && flash[key].is_a?(Array) %>
     <% flash[key].each do |msg| %>
       <div class="flash__message flash__message--<%= key %>">
-        <div class="flash__message__heading">
-          <%= key.capitalize %>
-        </div>
         <div class="flash__message__body">
           <%= msg %>
         </div>
@@ -13,3 +10,16 @@
     <% end %>
   <% end %>
 </div>
+
+<script>
+  (function() {
+    var flashes = document.querySelectorAll('.flash');
+    if (flashes.length < 1 ) { return; }
+
+    for (var i = 0; i < flashes.length; i++) {
+      flashes[i].addEventListener('click', function(e) {
+        this.remove();
+      });
+    }
+  })();
+</script>

@@ -1,0 +1,32 @@
+.nav-item {
+  color: $color-alt;
+  float: right;
+  font-weight: 600;
+  font-size: 90%;
+
+  &__gutter {
+    display: block;
+    padding: 10px;
+    color: $color-alt;
+
+    &--text {
+      font-weight: normal;
+    }
+
+    &--link {
+      text-decoration: none;
+
+      &:visited {
+        color: $color-alt;
+      }
+
+      &:active {
+        color: $color-alt-highlight;
+      }
+
+      &:hover {
+        color: $color-alt-highlight;
+      }
+    }
+  }
+}

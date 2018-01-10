@@ -10,7 +10,7 @@ App.room = App.cable.subscriptions.create(
       if (messagesList.length < 1) { return; }
 
       var messageWrapper = document.createElement('div');
-      messageWrapper.setAttribute('class', 'message__list__item');
+      messageWrapper.setAttribute('class', 'messages__list__item');
 
       var messageNode = document.createElement('div');
       messageNode.setAttribute('class', 'message');

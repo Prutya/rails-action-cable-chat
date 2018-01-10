@@ -1,0 +1,32 @@
+.flash {
+  &__message {
+    margin-bottom: 10px;
+    border: 2px solid;
+    border-radius: 4px;
+    color: $color-main;
+
+    &--error {
+      color:        $color-error;
+      border-color: $color-error;
+    }
+
+    &--warning {
+      color:        $color-warning;
+      border-color: $color-warning;
+    }
+
+    &--success {
+      color:        $color-success;
+      border-color: $color-success;
+    }
+
+    &--info {
+      color:        $color-info;
+      border-color: $color-info;
+    }
+
+    &__body {
+      padding: 5px;
+    }
+  }
+}

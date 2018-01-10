@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
       ActionCable.server.broadcast('room_channel', {
         message: {
           body: message.body,
+          created_at: message.created_at,
           user: {
             username: message.user.username
           }

@@ -1,7 +1,13 @@
 .nav {
+  @include clearfix;
   width: 100%;
+  background-color: #24292e;
+  padding: 9px 0;
 
   &__list {
+    @include clearfix;
+    width: $content-width;
+    margin: auto;
     list-style: none;
     padding: 0;
   }
