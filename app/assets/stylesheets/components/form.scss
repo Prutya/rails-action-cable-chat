@@ -1,0 +1,33 @@
+.form {
+  &__group {
+    @include clearfix;
+    margin-bottom: 15px;
+
+    &__label {
+      float: left;
+      width: 100%;
+      font-size: 80%;
+      margin-bottom: 2px;
+    }
+
+    &__input {
+      float: left;
+      width: 100%;
+      border: 1px solid $color-alt;
+      padding: 8px;
+      outline: none;
+
+      &--button {
+        border: none;
+        color: $color-alt-highlight;
+        background-color: $color-info;
+        cursor: pointer;
+        @include transition(background-color 200ms linear, color 200ms linear);
+
+        &:active, &:hover {
+          background-color: lighten($color-info, 20%);
+        }
+      }
+    }
+  }
+}

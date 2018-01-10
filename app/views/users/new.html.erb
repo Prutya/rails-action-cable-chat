@@ -1,11 +1,17 @@
-<h2>Sign up</h2>
+<h2 class="heading heading--2 heading--text-center">Sign up</h2>
 
-<%= form_for(@user) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :username %>
+<%= form_for @user, class: 'form' do |f| %>
+  <div class="form__group">
+    <%= f.label :name, class: 'form__group__label' %>
+    <%= f.text_field :username, class: 'form__group__input' %>
+  </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <div class="form__group">
+    <%= f.label :password, class: 'form__group__label' %>
+    <%= f.password_field :password, class: 'form__group__input' %>
+  </div>
 
-  <%= f.submit 'Create my account' %>
+  <div class="form__group">
+    <%= f.submit 'Create my account', class: 'form__group__input form__group__input--button' %>
+  </div>
 <% end %>

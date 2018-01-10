@@ -3,13 +3,13 @@
 
   &__username {
     float: left;
-    width: 10%;
+    width: 100px;
     padding: 5px;
   }
 
   &__body {
     float: left;
-    width: 90%;
+    width: calc(100% - 100px);
     padding: 5px;
   }
 }
