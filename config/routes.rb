@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'messages#index'
+  root 'chat#index'
 
   resources :messages, only: %i[index create]
   resources :users,    only: %i[new create]
