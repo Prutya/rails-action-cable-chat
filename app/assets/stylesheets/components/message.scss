@@ -1,10 +1,21 @@
 .message {
   @include clearfix;
 
-  &__username {
+  &__title {
+    @include clearfix;
     float: left;
     width: 100px;
     padding: 5px;
+
+    &__username {
+      float: left;
+      margin-bottom: 5px;
+    }
+
+    &__date {
+      float: left;
+      font-size: 60%;
+    }
   }
 
   &__body {

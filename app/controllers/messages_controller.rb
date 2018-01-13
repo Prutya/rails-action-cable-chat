@@ -11,16 +11,21 @@ class MessagesController < ApplicationController
     if message.save
       ActionCable.server.broadcast('room_channel', {
         message: {
-          body: message.body,
+          id:         message.id,
+          body:       message.body,
           created_at: message.created_at,
+
           user: {
+            id:       message.user.id,
             username: message.user.username
           }
         }
       })
 
-      return render 'index'
+      return render json: { status: 'ok' }, status: :ok
     end
+
+    render json: { status: 'bad_request' }, status: :bad_request
   end
 
   private
@@ -34,6 +39,7 @@ class MessagesController < ApplicationController
   end
 
   def params_create
-    params.require(:message).permit(:body)
+    # TODO: Rails ujs does not allow to send json???
+    (JSON.parse(params.to_unsafe_hash.to_a[0][0]))['message'].symbolize_keys
   end
 end
