@@ -78,12 +78,7 @@ class Chat extends React.Component {
     Rails.ajax({
       url: '/messages',
       type: 'POST',
-      dataType: 'json',
-      data: JSON.stringify({
-        message: {
-          body: body
-        }
-      }),
+      data: `message[body]=${body}`,
       success: this.onMessageSent,
       error: this.errorMessageSending
     })

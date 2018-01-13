@@ -39,7 +39,6 @@ class MessagesController < ApplicationController
   end
 
   def params_create
-    # TODO: Rails ujs does not allow to send json???
-    (JSON.parse(params.to_unsafe_hash.to_a[0][0]))['message'].symbolize_keys
+    params.require(:message).permit(:body)
   end
 end
