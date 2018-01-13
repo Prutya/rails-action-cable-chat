@@ -23,6 +23,6 @@ class MessagesForm extends React.Component {
   }
 
   handleSendClick() {
-    this.props.sendMessage(this.inputBody.value)
+    this.props.sendMessage(this.inputBody)
   }
 }

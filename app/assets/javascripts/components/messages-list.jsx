@@ -1,7 +1,7 @@
 class MessagesList extends React.Component {
   render() {
     return (
-      <div className='messages__list'>
+      <div className='messages__list' ref={ (list) => { this.list = list } }>
         {
           this.props.messages.map((msg) => {
             return (
@@ -25,5 +25,9 @@ class MessagesList extends React.Component {
         }
       </div>
     )
+  }
+
+  componentDidUpdate() {
+    this.list.scrollTop = this.list.scrollHeight
   }
 }

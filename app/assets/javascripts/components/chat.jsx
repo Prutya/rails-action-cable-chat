@@ -70,7 +70,7 @@ class Chat extends React.Component {
     })
   }
 
-  sendMessage(body) {
+  sendMessage(input) {
     this.setState({
       isSendingMessage: true
     })
@@ -78,16 +78,18 @@ class Chat extends React.Component {
     Rails.ajax({
       url: '/messages',
       type: 'POST',
-      data: `message[body]=${body}`,
-      success: this.onMessageSent,
+      data: `message[body]=${input.value}`,
+      success: () => { this.onMessageSent(input) },
       error: this.errorMessageSending
     })
   }
 
-  onMessageSent() {
+  onMessageSent(input) {
     this.setState({
       isSendingMessage: false
     })
+
+    input.value = ''
   }
 
   errorMessageSending() {
